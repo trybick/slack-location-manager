@@ -1,8 +1,8 @@
 const dotenv = require('dotenv');
 
-dotenv.config();
+// dotenv.config();
 
-module.exports = {
-  DB_PASSWORD: process.env.DB_PASSWORD,
-  JWT_KEY: process.env.JWT_KEY
-};
+// module.exports = {
+//   SLACK_TOKEN: process.env.DB_PASSWORD,
+//   JWT_KEY: process.env.JWT_KEY
+// };
