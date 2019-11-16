@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "Location-based slack status automation",
   "main": "index.js",
-  "scripts": {
-
-  },
+  "scripts": {},
   "author": "Tim Rybicki",
   "license": "ISC",
   "dependencies": {
-    "@slack/web-api": "^5.5.0"
+    "@slack/web-api": "^5.5.0",
+    "dotenv": "^8.2.0"
   }
 }
