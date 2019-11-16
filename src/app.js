@@ -7,13 +7,17 @@ const web = new WebClient(process.env.SLACK_TOKEN);
 (async () => {
   const res = await web.auth.test();
   console.log('res:', res);
-
   const userId = res.user_id;
 
-  await web.chat.postMessage({
-    channel: userId,
-    text: `The current time is ${currentTime}`
-  });
+  // Post a message test
+  // await web.chat.postMessage({
+  //   channel: userId,
+  //   text: `The current time is ${currentTime}`
+  // });
 
-  console.log('Message posted!');
+  // Get current status
+  // const currentStatus = await web.users.profile.get({});
+  // console.log('current status:', currentStatus);
+
+  console.log('Done!');
 })();
