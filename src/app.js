@@ -7,10 +7,7 @@ const web = new WebClient(process.env.SLACK_TOKEN);
 // The current date
 const currentTime = new Date().toTimeString();
 
-console.log(
-  'process.env.SLACK_TOKEN:',
-  process.env.SLACK_TOKEN
-)(async () => {
+(async () => {
   // Use the `auth.test` method to find information about the installing user
   const res = await web.auth.test();
   console.log('res:', res);
