@@ -2,7 +2,7 @@ const { WebClient } = require('@slack/web-api');
 const dotenv = require('dotenv');
 
 dotenv.config();
-const web = new WebClient(process.env.SLACK_TOKEN);
+const web = new WebClient(process.env.CELTIC_TOKEN);
 
 (async () => {
   const res = await web.auth.test();
