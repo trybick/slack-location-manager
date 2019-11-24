@@ -2,13 +2,13 @@ const { WebClient } = require('@slack/web-api');
 const dotenv = require('dotenv');
 
 dotenv.config();
-const web = new WebClient(process.env.CELTIC_TOKEN);
+const web = new WebClient(process.env.CELTIC_TOKEN); // my private slack workspace
 
 (async () => {
   const res = await web.auth.test();
   const userId = res.user_id;
 
-  // Set custom status
+  // Set custom status (personal workspace)
   await web.users.profile
     .set({
       user: userId,

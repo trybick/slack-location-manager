@@ -5,7 +5,7 @@ const fs = require('fs');
 dotenv.config();
 const web = new WebClient(process.env.F1V_TOKEN);
 
-const saveDataToFile = data => {
+const saveToJson = data => {
   const path = `./logs/${new Date().toJSON()}.json`;
   fs.writeFile(path, data, err => {
     if (err) throw err;
@@ -14,11 +14,11 @@ const saveDataToFile = data => {
 };
 
 (async () => {
-  // Get logs
+  // Fetch team logs and save to file
   await web.team
     .accessLogs()
     .then(res => {
-      saveDataToFile(JSON.stringify(res, null, 2));
+      saveToJson(JSON.stringify(res, null, 2));
     })
     .catch(err => console.log('Error:', err));
 })();
