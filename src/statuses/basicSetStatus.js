@@ -13,11 +13,11 @@ const web = new WebClient(process.env.CELTIC_TOKEN); // my private slack workspa
     .set({
       user: userId,
       profile: {
-        status_text: 'riding a bus',
+        status_text: 'boom',
         status_emoji: ':mountain_railway:',
         status_expiration: 0
       }
     })
-    .then(res => console.log('Response:', res)
+    .then(res => console.log('Response:', res))
     .catch(err => console.log('Error:', err.data.error));
 })();
