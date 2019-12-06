@@ -12,6 +12,7 @@
     "dotenv": "^8.2.0",
     "fs": "0.0.1-security",
     "node-persist": "^3.0.5",
-    "prompts": "^2.3.0"
+    "prompts": "^2.3.0",
+    "request": "^2.88.0"
   }
 }
