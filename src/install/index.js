@@ -11,6 +11,6 @@ const createCronJob = require('./createCron');
   const userData = await promptUser();
   const { schedule, token } = userData;
 
-  saveToDisk(token);
-  createCronJob(schedule);
+  await saveToDisk(token);
+  await createCronJob(schedule);
 })();

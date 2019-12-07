@@ -15,7 +15,6 @@ async function saveToDisk(token) {
 
   storage.setItem(token);
   console.log(await `Token saved to ${directory}`);
-  console.log(await 'Please click OK to create a cron job');
 }
 
 async function initStorage() {
