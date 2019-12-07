@@ -1,0 +1,31 @@
+{
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "plugins": ["prettier"],
+  "globals": {
+    "fetch": false
+  },
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "prettier/prettier": ["warning"],
+    "eol-last": 0,
+    "import/prefer-default-export": 0,
+    "no-trailing-spaces": 0,
+    "max-len": 0,
+    "no-unused-vars": 1,
+    "no-multiple-empty-lines": 0,
+    "padded-blocks": 1,
+    "func-names": 0,
+    "no-console": 0,
+    "import/order": 0,
+    "react/sort-comp": 0,
+    "jsx-a11y/label-has-associated-control": 0,
+    "jsx-a11y/label-has-for": 0,
+    "react/prop-types": 0,
+    "prefer-const": 1,
+    "react/no-unused-state": 1,
+    "no-nested-ternary": 0,
+    "react/destructuring-assignment": 0
+  }
+}

@@ -11,7 +11,7 @@ const localName = os.userInfo().username;
 async function saveToDisk(userData) {
   await storage
     .init({
-      dir: `/Users/${localName}/Documents/slack-status-scheduler`
+      dir: `/Users/${localName}/Documents/slack-status-scheduler`,
     })
     .catch(handleErrors);
 

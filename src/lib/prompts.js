@@ -11,13 +11,13 @@ const questions = [
   {
     name: 'username',
     type: 'text',
-    message: 'What is your Slack username?'
+    message: 'What is your Slack username?',
     // validate: input => reg.test(input) ? 'Username must be only letters and numbers' : true
   },
   {
     name: 'token',
     type: 'text',
-    message: 'What is your Slack token?'
+    message: 'What is your Slack token?',
   },
   {
     type: 'select',
@@ -28,10 +28,10 @@ const questions = [
       { title: '8:55 am', value: '8:55' },
       { title: '9:05 am', value: '9:05' },
       { title: '9:10 am', value: '9:10' },
-      { title: '9:15 am', value: '9:15' }
+      { title: '9:15 am', value: '9:15' },
     ],
-    initial: 0
-  }
+    initial: 0,
+  },
 ];
 
 async function promptUser() {
