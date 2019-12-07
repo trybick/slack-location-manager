@@ -8,8 +8,9 @@ const calculateEmoji = require('./calculateEmoji');
 
 (async () => {
   // Get Emoji
+  const emojiRegex = /:.*:/;
   const emoji = await calculateEmoji();
-  if (!emoji) {
+  if (!emoji || !emojiRegex.test(emoji)) {
     return;
   }
 

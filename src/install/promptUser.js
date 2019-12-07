@@ -33,8 +33,7 @@ async function promptUser() {
 }
 
 function _validateToken(token) {
-  // eslint-disable-next-line no-useless-escape
-  const regex = /^[0-9A-Za-z\s\-]+$/; // Letters, numbers, and dashes
+  const regex = /^[0-9A-Za-z\s-]+$/; // Letters, numbers, and dashes
   const isValid = token.length > 5 && regex.test(token);
 
   return isValid ? true : 'Token invalid';
