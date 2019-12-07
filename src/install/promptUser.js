@@ -14,8 +14,8 @@ const questions = [
   },
   {
     type: 'select',
-    name: 'time',
-    message: 'What time do you want the script to run?',
+    name: 'schedule',
+    message: 'What time do you want the script to run (Mon - Fri)?',
     choices: [
       { title: '8:45 am', value: '8:45' },
       { title: '8:55 am', value: '8:55' },
@@ -28,12 +28,9 @@ const questions = [
 
 async function promptUser() {
   const data = await prompts(questions);
-  console.log('data:', data);
 
   return data;
 }
-
-promptUser();
 
 function _validateToken(token) {
   // eslint-disable-next-line no-useless-escape

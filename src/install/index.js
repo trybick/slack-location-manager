@@ -12,5 +12,5 @@ const createCronJob = require('./createCron');
 
   saveToDisk(userData);
 
-  createCronJob(userData.time);
+  // createCronJob(userData.time);
 })();
