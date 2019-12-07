@@ -1,29 +1,30 @@
+require('dotenv').config();
 const { WebClient } = require('@slack/web-api');
-const dotenv = require('dotenv');
-const getCity = require('./getCity');
+const calculateEmoji = require('./calculateEmoji');
 
 //
 // This is the script that cron will call repeatedly
 //
 
-// dotenv.config();
-// const slack = new WebClient(process.env.CELTIC_USER_2_TOKEN); // Token determines the user
-
 (async () => {
-  const city = await getCity();
-  console.log('city:', city)
+  // Get local Token
 
-  // const userId = await slack.auth.test().userId;
+  // Get Emoji
+  const emoji = await calculateEmoji();
 
-  // await slack.users.profile
-  //   .set({
-  //     user: userId,
-  //     profile: {
-  //       status_text: 'boom',
-  //       status_emoji: ':mountain_railway:',
-  //       status_expiration: 0,
-  //     },
-  //   })
-  //   .then(res => console.log('Response:', res))
-  //   .catch(err => console.log('Error:', err.data.error));
+  // Slack API
+  const slack = new WebClient(process.env.CELTIC_USER_2_TOKEN);
+  const { userId } = await slack.auth.test();
+
+  await slack.users.profile
+    .set({
+      user: userId,
+      profile: {
+        status_text: '',
+        status_emoji: emoji,
+        status_expiration: 36000, // 10 hours
+      },
+    })
+    .then(res => console.log('Response:', res))
+    .catch(err => console.log('Error:', err.data.error));
 })();
