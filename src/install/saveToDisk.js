@@ -19,10 +19,12 @@ async function saveToDisk(userData) {
 
   await storage.clear();
 
-  Object.keys(userData).forEach(key => {
+  await Object.keys(userData).forEach(key => {
     storage.setItem(key, userData[key]);
     console.log(`${_.upperFirst(key)} saved to ${directory}`);
   });
+
+  console.log(await 'Please click OK if in order to create cron job');
 }
 
 module.exports = saveToDisk;
