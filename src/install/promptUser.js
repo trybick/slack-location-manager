@@ -1,7 +1,7 @@
 const prompts = require('prompts');
 
 //
-// Prompt user for information
+// Prompt user for Slack token and desired time to run script
 //
 
 const questions = [
@@ -15,7 +15,7 @@ const questions = [
   {
     type: 'select',
     name: 'schedule',
-    message: 'What time do you want the script to run (Mon - Fri)?',
+    message: 'What time should the status updater script run (Mon - Fri)?',
     choices: [
       { title: '8:45 am', value: '8:45' },
       { title: '8:55 am', value: '8:55' },

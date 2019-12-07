@@ -2,11 +2,12 @@ require('dotenv').config();
 const { WebClient } = require('@slack/web-api');
 const calculateEmoji = require('./calculateEmoji');
 const storage = require('node-persist');
-const os = require('os');
+const { initStorage } = require('../install/saveToDisk');
 const handleErrors = require('../util/handleErrors');
 
 //
-// This is the script that cron will call repeatedly
+// Script that cron will call repeatedly
+// calculate emoji --> retrieve token --> call Slack API
 //
 
 (async () => {
@@ -17,18 +18,9 @@ const handleErrors = require('../util/handleErrors');
     return;
   }
 
-  // Get local Token
-  const localName = os.userInfo().username;
-  const directory = `/Users/${localName}/Documents/slack-status-scheduler`;
-
-  await storage
-    .init({
-      dir: directory,
-    })
-    .catch(handleErrors);
-
+  // Get local token
+  await initStorage();
   const token = await storage.getItem('token');
-  console.log('token:', token)
 
   // Call Slack API
   const slack = new WebClient(token);
@@ -44,5 +36,5 @@ const handleErrors = require('../util/handleErrors');
       },
     })
     .then(res => console.log('Response:', res))
-    .catch(err => console.log('Error:', err.data.error));
+    .catch(handleErrors);
 })();

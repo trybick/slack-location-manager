@@ -1,16 +1,16 @@
 const promptUser = require('./promptUser');
-const saveToDisk = require('./saveToDisk');
+const { saveToDisk } = require('./saveToDisk');
 const createCronJob = require('./createCron');
 
 //
 // The install script
-// promptUser --> saveToDisk --> createCron (then cron job calls recurring script)
+// promptUser --> saveToDisk --> createCron
 //
 
-(async function main() {
+(async function install() {
   const userData = await promptUser();
-  const { schedule } = userData;
+  const { schedule, token } = userData;
 
-  saveToDisk(userData);
+  saveToDisk(token);
   createCronJob(schedule);
 })();

@@ -1,7 +1,7 @@
 const crontab = require('crontab');
 
 //
-// Schedule a system cron job
+// Schedule a system cron job for the recurring script
 //
 
 function createCronJob(time) {
