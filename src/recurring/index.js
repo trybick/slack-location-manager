@@ -7,12 +7,15 @@ const calculateEmoji = require('./calculateEmoji');
 //
 
 (async () => {
-  // Get local Token
-
   // Get Emoji
   const emoji = await calculateEmoji();
+  if (!emoji) {
+    return;
+  }
 
-  // Slack API
+  // Get local Token
+
+  // Call Slack API
   const slack = new WebClient(process.env.CELTIC_USER_2_TOKEN);
   const { userId } = await slack.auth.test();
 

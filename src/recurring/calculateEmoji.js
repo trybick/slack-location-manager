@@ -1,23 +1,27 @@
 const rp = require('request-promise');
 const handleErrors = require('../util/handleErrors');
 
+//
+// Return emoji dependent on user's IP address
+//
+
+const emojiMap = {
+  Waltham: null,
+  Billerica: ':green_apple:',
+  Concord: ':green_apple:',
+  Melrose: ':earth_americas:',
+};
+
 async function calculateEmoji() {
-  let emoji;
   const city = await _getCity();
 
-  if (city === 'Waltham') {
-    emoji = null;
-  } else if (city === 'Billerica' || city === 'Concord') {
-    emoji = 'green_apple';
-  } else {
-    emoji = ':earth_americas:';
-  }
-
-  return emoji;
+  return emojiMap[city];
 }
 
 function _getCity() {
-  return rp('https://ipinfo.io/json')
+  const api = 'https://ipinfo.io/json';
+
+  return rp(api)
     .then(res => {
       const json = JSON.parse(res);
 
