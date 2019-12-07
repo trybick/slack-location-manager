@@ -4,20 +4,13 @@ const prompts = require('prompts');
 // Prompt user for information
 //
 
-// RegExp validation in progress
-// const reg = new RegExp('/^[a-zA-Z\s\-]+$/')
-
 const questions = [
-  {
-    name: 'username',
-    type: 'text',
-    message: 'What is your Slack username?',
-    // validate: input => reg.test(input) ? 'Username must be only letters and numbers' : true
-  },
   {
     name: 'token',
     type: 'text',
-    message: 'What is your Slack token?',
+    validate: _validateToken,
+    message:
+      "Your slack token is needed to determine which user's status to change. Please paste your token:",
   },
   {
     type: 'select',
@@ -27,7 +20,6 @@ const questions = [
       { title: '8:45 am', value: '8:45' },
       { title: '8:55 am', value: '8:55' },
       { title: '9:05 am', value: '9:05' },
-      { title: '9:10 am', value: '9:10' },
       { title: '9:15 am', value: '9:15' },
     ],
     initial: 0,
@@ -36,10 +28,19 @@ const questions = [
 
 async function promptUser() {
   const data = await prompts(questions);
+  console.log('data:', data);
 
   return data;
 }
 
 promptUser();
+
+function _validateToken(token) {
+  // eslint-disable-next-line no-useless-escape
+  const regex = /^[0-9A-Za-z\s\-]+$/; // Letters, numbers, and dashes
+  const isValid = token.length > 5 && regex.test(token);
+
+  return isValid ? true : 'Token invalid';
+}
 
 module.exports = promptUser;

@@ -4,6 +4,7 @@ const handleErrors = require('../util/handleErrors');
 
 //
 // Persist user data to disk
+// Recieves data from promptUser
 //
 
 async function saveToDisk(userData) {

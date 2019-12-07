@@ -1,18 +1,16 @@
-// to do later inside recurring cron script:
-// import user info into slack script
-// make slack API call
-
 const promptUser = require('./promptUser');
-const saveToken = require('./saveToken');
+const saveToDisk = require('./saveToDisk');
 const createCronJob = require('./createCron');
 
+//
+// The install script runs in this order:
+// promptUser --> saveToDisk --> createCron (then cron job calls recurring script)
+//
+
 (async function main() {
-  // Prompt user for input
   const userData = await promptUser();
 
-  // Persist user info
-  saveToken(userData);
+  saveToDisk(userData);
 
-  // Schedule cron job
   createCronJob(userData.time);
 })();
