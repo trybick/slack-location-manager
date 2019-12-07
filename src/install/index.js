@@ -2,16 +2,16 @@
 // import user info into slack script
 // make slack API call
 
-const promptUser = require('./lib/prompts');
-const saveToDisk = require('./lib/store');
-const createCronJob = require('./lib/cron');
+const promptUser = require('./promptUser');
+const saveToken = require('./saveToken');
+const createCronJob = require('./createCron');
 
 (async function main() {
   // Prompt user for input
   const userData = await promptUser();
 
   // Persist user info
-  saveToDisk(userData);
+  saveToken(userData);
 
   // Schedule cron job
   createCronJob(userData.time);

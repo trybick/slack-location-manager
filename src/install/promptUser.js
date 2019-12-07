@@ -35,9 +35,11 @@ const questions = [
 ];
 
 async function promptUser() {
-  const response = await prompts(questions);
+  const data = await prompts(questions);
 
-  return response;
+  return data;
 }
+
+promptUser();
 
 module.exports = promptUser;

@@ -6,9 +6,9 @@ const handleErrors = require('../util/handleErrors');
 // Persist user data to disk
 //
 
-const localName = os.userInfo().username;
-
 async function saveToDisk(userData) {
+  const localName = os.userInfo().username;
+
   await storage
     .init({
       dir: `/Users/${localName}/Documents/slack-status-scheduler`,
