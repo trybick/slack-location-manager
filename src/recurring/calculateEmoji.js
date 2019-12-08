@@ -6,16 +6,16 @@ const handleErrors = require('../util/handleErrors');
 //
 
 const emojiMap = {
-  Waltham: null,
-  Billerica: ':green_apple:',
-  Concord: ':green_apple:',
-  remote: ':earth_americas:',
+  waltham: null,
+  billerica: ':green_apple:',
+  concord: ':green_apple:',
+  remote: ':house_with_garden:',
 };
 
 async function calculateEmoji() {
   const city = await _getCity();
 
-  return emojiMap[city] || emojiMap.remote;
+  return emojiMap[city.toLowerCase()] || emojiMap.remote;
 }
 
 function _getCity() {
