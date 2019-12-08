@@ -1,6 +1,7 @@
 const storage = require('node-persist');
 const os = require('os');
 const handleErrors = require('../util/handleErrors');
+const chalk = require('chalk');
 
 //
 // Store token locally
@@ -14,7 +15,7 @@ async function saveToDisk(token) {
   await storage.clear();
   storage.setItem(token);
 
-  console.log(await `Token saved to ${directory}`);
+  console.log(chalk.green.bold(await `Token saved to ${directory}`));
 }
 
 async function initStorage() {

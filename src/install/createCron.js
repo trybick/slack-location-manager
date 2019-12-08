@@ -1,4 +1,5 @@
 const crontab = require('crontab');
+const chalk = require('chalk');
 
 //
 // Schedule a system cron job for the recurring script
@@ -16,8 +17,8 @@ function createCronJob(time) {
     job.create('ls -la', schedule);
     job.save();
 
-    console.log(await `Cron job created for ${time} Monday - Friday.`);
-    console.log(await `Please click OK for write access if prompted.`);
+    console.log(chalk.green.bold(await `Cron job created for ${time} am Monday - Friday.`));
+    console.log(chalk.cyan.italic.bold(await `Please click OK for write access if prompted.`));
   });
 }
 
