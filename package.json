@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Location-based slack status automation",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "go": "npm i && npm run installer",
+    "installer": "node src/install/index.js",
+    "recurring": "node src/recurring/index.js"
+  },
   "author": "Tim Rybicki",
   "license": "ISC",
   "dependencies": {
@@ -28,6 +32,6 @@
     "prettier": "^1.19.1"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "airbnb"
   }
 }

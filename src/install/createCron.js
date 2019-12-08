@@ -17,6 +17,8 @@ async function createCronJob(time) {
     job.create('ls -la', schedule);
     job.save();
   });
+
+  console.log(await `Cron job created: ${time} Mon-Fri`);
 }
 
 module.exports = createCronJob;
