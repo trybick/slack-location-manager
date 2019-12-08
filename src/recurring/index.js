@@ -22,6 +22,7 @@ const handleErrors = require('../util/handleErrors');
 
   const slack = new WebClient(token);
   const { userId } = await slack.auth.test();
+  const expiration = Date.now() / 1000 + 36000; // in 10 hours
 
   await slack.users.profile
     .set({
@@ -29,7 +30,7 @@ const handleErrors = require('../util/handleErrors');
       profile: {
         status_text: '',
         status_emoji: emoji,
-        status_expiration: 36000, // 10 hours
+        status_expiration: expiration,
       },
     })
     .then(res => console.log('Response:', res))
