@@ -1,5 +1,4 @@
 const storage = require('node-persist');
-const os = require('os');
 const handleErrors = require('../util/handleErrors');
 const chalk = require('chalk');
 
@@ -7,8 +6,7 @@ const chalk = require('chalk');
 // Store token locally
 //
 
-const localName = os.userInfo().username;
-const directory = `/Users/${localName}/Documents/slack-status-scheduler`;
+const directory = `/Applications/slack-status-scheduler`;
 
 async function saveToDisk(token) {
   await initStorage();
