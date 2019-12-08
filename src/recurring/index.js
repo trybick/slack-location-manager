@@ -11,18 +11,15 @@ const handleErrors = require('../util/handleErrors');
 //
 
 (async () => {
-  // Get Emoji
   const emojiRegex = /:.*:/;
   const emoji = await calculateEmoji();
   if (!emoji || !emojiRegex.test(emoji)) {
     return;
   }
 
-  // Get local token
   await initStorage();
   const token = await storage.getItem('token');
 
-  // Call Slack API
   const slack = new WebClient(token);
   const { userId } = await slack.auth.test();
 

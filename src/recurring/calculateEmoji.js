@@ -9,13 +9,13 @@ const emojiMap = {
   Waltham: null,
   Billerica: ':green_apple:',
   Concord: ':green_apple:',
-  default: ':earth_americas:',
+  remote: ':earth_americas:',
 };
 
 async function calculateEmoji() {
   const city = await _getCity();
 
-  return emojiMap[city] || emojiMap.default;
+  return emojiMap[city] || emojiMap.remote;
 }
 
 function _getCity() {

@@ -12,8 +12,8 @@ const directory = `/Users/${localName}/Documents/slack-status-scheduler`;
 async function saveToDisk(token) {
   await initStorage();
   await storage.clear();
-
   storage.setItem(token);
+
   console.log(await `Token saved to ${directory}`);
 }
 

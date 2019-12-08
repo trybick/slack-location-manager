@@ -4,7 +4,7 @@ const createCronJob = require('./createCron');
 
 //
 // The install script
-// promptUser --> saveToDisk --> createCron
+// prompt user --> save token --> create cron job
 //
 
 (async function install() {
