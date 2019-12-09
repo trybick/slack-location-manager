@@ -8,6 +8,7 @@ const questions = [
   {
     name: 'token',
     type: 'text',
+    style: 'password',
     validate: _validateToken,
     message:
       "Your slack token is needed to determine which user's status to change. Please paste your token:",
@@ -21,8 +22,9 @@ const questions = [
       { title: '8:55 am', value: '8:55' },
       { title: '9:05 am', value: '9:05' },
       { title: '9:15 am', value: '9:15' },
+      { title: '9:25 am', value: '9:15' },
     ],
-    initial: 0,
+    initial: 2,
   },
 ];
 

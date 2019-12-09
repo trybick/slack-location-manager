@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 const promptUser = require('./promptUser');
 const { saveToDisk } = require('./saveToDisk');
 const createCronJob = require('./createCron');

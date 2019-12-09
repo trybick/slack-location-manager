@@ -6,7 +6,7 @@ const chalk = require('chalk');
 // Store token locally
 //
 
-const directory = `/Applications/slack-status-scheduler`;
+const directory = `/Applications/slack-location-manager`;
 
 async function saveToDisk(token) {
   await initStorage();
