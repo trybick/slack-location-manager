@@ -36,6 +36,6 @@
     "extends": "airbnb"
   },
   "bin": {
-    "slm": "./src/install/index.js"
+    "slm": "./src/index.js"
   }
 }

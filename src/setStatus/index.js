@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 require('dotenv').config();
 const { WebClient } = require('@slack/web-api');
 const calculateEmoji = require('./calculateEmoji');
@@ -10,7 +12,7 @@ const handleErrors = require('../util/handleErrors');
 // calculate emoji --> retrieve token --> call Slack API
 //
 
-(async () => {
+async function setStatus() {
   const emojiRegex = /:.*:/;
   const emoji = await calculateEmoji();
   if (!emoji || !emojiRegex.test(emoji)) {
@@ -35,4 +37,6 @@ const handleErrors = require('../util/handleErrors');
     })
     .then(res => console.log('Response:', res))
     .catch(handleErrors);
-})();
+}
+
+module.exports = setStatus;

@@ -9,10 +9,12 @@ const createCronJob = require('./createCron');
 // prompt user --> save token --> create cron job
 //
 
-(async function install() {
+async function install() {
   const userData = await promptUser();
   const { schedule, token } = userData;
 
   await saveToDisk(token);
   await createCronJob(schedule);
-})();
+}
+
+module.exports = install;
