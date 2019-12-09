@@ -15,7 +15,7 @@ const emojiMap = {
 async function calculateEmoji() {
   const city = await _getCity();
 
-  return emojiMap[city.toLowerCase()] || emojiMap.remote;
+  return emojiMap[city] || emojiMap.remote;
 }
 
 function _getCity() {
@@ -25,7 +25,7 @@ function _getCity() {
     .then(res => {
       const json = JSON.parse(res);
 
-      return json.city;
+      return json.city.toLowerCase();
     })
     .catch(handleErrors);
 }
