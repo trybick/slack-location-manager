@@ -11,8 +11,8 @@ if (!option) {
   console.log(chalk.red.bold('Expected at least one argument'));
   console.log(chalk.cyan(`Try running 'slm install' or 'slm set'`));
   process.exit(1);
-} else if (option === 'install') {
+} else if (option === 'install' || option === '-i') {
   install();
-} else if (option === 'set') {
+} else if (option === 'set' || option === '-s') {
   setStatus();
 }
