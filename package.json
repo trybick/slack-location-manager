@@ -34,5 +34,8 @@
   },
   "eslintConfig": {
     "extends": "airbnb"
+  },
+  "bin": {
+    "slm": "./src/install/index.js"
   }
 }
