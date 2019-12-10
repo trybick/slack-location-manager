@@ -35,7 +35,7 @@ async function promptUser() {
 }
 
 function _validateToken(token) {
-  const regex = /^[0-9A-Za-z\s-]+$/; // Letters, numbers, dashes
+  const regex = /^[0-9A-Za-z\s-]+$/; // letters, numbers, dashes
   const isValid = token.length > 5 && regex.test(token);
 
   return isValid ? true : 'Token invalid';

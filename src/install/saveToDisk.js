@@ -6,6 +6,7 @@ const chalk = require('chalk');
 // Store token locally
 //
 
+const { log } = console;
 const directory = `/Applications/slack-location-manager`;
 
 async function saveToDisk(token) {
@@ -13,7 +14,7 @@ async function saveToDisk(token) {
   await storage.clear();
   storage.setItem('token', token);
 
-  console.log(chalk.green.bold(await `Token saved to ${directory}`));
+  log(chalk.green.bold((await `✔ Token saved: `) + chalk.green(`${directory}`)));
 }
 
 async function initStorage() {

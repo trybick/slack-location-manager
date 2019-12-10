@@ -6,6 +6,7 @@ const calculateEmoji = require('./calculateEmoji');
 const storage = require('node-persist');
 const { initStorage } = require('../install/saveToDisk');
 const handleErrors = require('../util/handleErrors');
+const handleSetSuccess = require('./handleSetSuccess');
 
 //
 // Script that cron will call repeatedly
@@ -35,7 +36,7 @@ async function setStatus() {
         status_expiration: expiration,
       },
     })
-    .then(res => console.log('Response:', res))
+    .then(handleSetSuccess)
     .catch(handleErrors);
 }
 

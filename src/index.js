@@ -6,10 +6,11 @@ const setStatus = require('./setStatus/index');
 
 const args = process.argv;
 const option = args[2];
+const { log } = console;
 
 if (!option) {
-  console.log(chalk.red.bold('Expected at least one argument'));
-  console.log(chalk.cyan(`Try running 'slm install' or 'slm set'`));
+  log(chalk.red('Expected at least one argument'));
+  log(chalk.cyan(`Try running 'slm install' or 'slm set'`));
   process.exit(1);
 } else if (option === 'install' || option === '-i') {
   install();
