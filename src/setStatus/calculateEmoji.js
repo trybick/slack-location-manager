@@ -2,7 +2,7 @@ const rp = require('request-promise');
 const handleErrors = require('../util/handleErrors');
 
 //
-// Return emoji dependent on user's IP address
+// Return emoji dependent on user's IP address location
 //
 
 const emojiMap = {
@@ -14,11 +14,11 @@ const emojiMap = {
 
 async function calculateEmoji() {
   const { city, org } = await _getIpInfo();
-  console.log('org:', org)
+  // console.log('org:', org)
 
   // Make it work for remote Waltham users
   if (city === 'waltham') {
-    console.log('org');
+    // console.log('org');
     // if org = F1V, return null
     // else return remote
   }

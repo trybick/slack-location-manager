@@ -4,6 +4,10 @@ const chalk = require('chalk');
 const install = require('./install/index');
 const setStatus = require('./setStatus/index');
 
+//
+// Top-level master script
+//
+
 const args = process.argv;
 const option = args[2];
 const { log } = console;
