@@ -16,7 +16,7 @@ const questions = [
   {
     type: 'select',
     name: 'schedule',
-    message: 'What time should the status updater script run (Mon - Fri)?',
+    message: 'What time should the status updater run (Mon - Fri)?',
     choices: [
       { title: '8:45 am', value: '8:45' },
       { title: '8:55 am', value: '8:55' },

@@ -1,11 +1,10 @@
 const crontab = require('crontab');
 const chalk = require('chalk');
+const log = require('../util/consoleLog');
 
 //
 // Schedule a system cron job for the recurring script
 //
-
-const { log } = console;
 
 function createCronJob(time) {
   const formattedTime = time // parse '8:45' into '45 8'
@@ -22,9 +21,8 @@ function createCronJob(time) {
     cron.create(slmCommand + redirect, schedule);
     cron.save();
 
-    log(
-      chalk.green.bold((await '✔ Cron job created: ') + chalk.green(`${time}am Monday - Friday`))
-    );
+    log(chalk.green(await `✔ Cron job created: ${time} am Monday - Friday`));
+    log('\n');
     log(chalk.cyan.italic.bold(await `Please click OK for write access if prompted`));
   });
 }

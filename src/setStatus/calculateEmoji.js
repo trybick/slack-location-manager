@@ -6,7 +6,7 @@ const handleErrors = require('../util/handleErrors');
 //
 
 const emojiMap = {
-  waltham: null,
+  f1v: null,
   billerica: ':yoop_jazz_hands:',
   concord: ':yoop_jazz_hands:',
   remote: ':house_with_garden:',
@@ -14,13 +14,10 @@ const emojiMap = {
 
 async function calculateEmoji() {
   const { city, org } = await _getIpInfo();
-  // console.log('org:', org)
+  const isAtF1V = (city === 'waltham' || city === 'watertown') && org.contains('Verizon Business');
 
-  // Make it work for remote Waltham users
-  if (city === 'waltham') {
-    // console.log('org');
-    // if org = F1V, return null
-    // else return remote
+  if (isAtF1V) {
+    return emojiMap.f1v;
   }
 
   return emojiMap[city] || emojiMap.remote;
@@ -39,7 +36,5 @@ function _getIpInfo() {
     })
     .catch(handleErrors);
 }
-
-calculateEmoji();
 
 module.exports = calculateEmoji;

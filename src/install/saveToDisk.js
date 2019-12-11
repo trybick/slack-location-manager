@@ -1,12 +1,12 @@
 const storage = require('node-persist');
 const handleErrors = require('../util/handleErrors');
 const chalk = require('chalk');
+const log = require('../util/consoleLog');
 
 //
 // Store token locally
 //
 
-const { log } = console;
 const directory = `/Applications/slack-location-manager`;
 
 async function saveToDisk(token) {
@@ -14,7 +14,8 @@ async function saveToDisk(token) {
   await storage.clear();
   storage.setItem('token', token);
 
-  log(chalk.green.bold((await `✔ Token saved: `) + chalk.green(`${directory}`)));
+  log('\n');
+  log(chalk.green((await `✔ Token saved: `) + chalk.green(`${directory}`)));
 }
 
 async function initStorage() {
@@ -25,4 +26,4 @@ async function initStorage() {
     .catch(handleErrors);
 }
 
-module.exports = { initStorage, saveToDisk };
+module.exports = { initStorage, saveToDisk, directory };

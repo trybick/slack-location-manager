@@ -1,5 +1,4 @@
 #! /usr/bin/env node
-
 require('dotenv').config();
 const { WebClient } = require('@slack/web-api');
 const calculateEmoji = require('./calculateEmoji');
@@ -25,7 +24,7 @@ async function setStatus() {
 
   const slack = new WebClient(token);
   const { userId } = await slack.auth.test();
-  const expiration = Date.now() / 1000 + 36000; // in 10 hours
+  const midnight = new Date(new Date().setHours(23, 59, 0, 0)) / 1000;
 
   await slack.users.profile
     .set({
@@ -33,7 +32,7 @@ async function setStatus() {
       profile: {
         status_text: '',
         status_emoji: emoji,
-        status_expiration: expiration,
+        status_expiration: midnight,
       },
     })
     .then(handleSetSuccess)
