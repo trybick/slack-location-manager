@@ -2,9 +2,9 @@
 
 A command-line tool that sets your slack status emoji depending on your location. Run the wizard to create a cron job which will run the script daily.
 
-## How it works
+## Made for F1V
 
-The script makes an 'update profile' API call to Slack with an emoji calculated from the location of your IP address. Run the wizard to create a daily cron job.
+This was created for an internal use at F1V. If you're not part of the team and want to use this, you will need to create an app and get a token from it within your workspace.
 
 ## Install
 
@@ -18,7 +18,7 @@ npm install -g slack-location-manager
 
 #### Run the install wizard
 
-This will prompt you for a token and your desired schedule. (**Important**: To get your token, see How to get a Token)
+This will prompt you for a token and your desired schedule. (**Important**: To get your token, see below [How to get a Token](https://github.com/trybick/slack-location-manager#how-to-get-a-token))
 
 ```bash
 slm install
@@ -32,7 +32,7 @@ This is the command that cron will call daily. You can use this command to test 
 slm set
 ```
 
-## How to get a Token
+## How to Get a Token
 
 Note: you should only have to do this once. Once completed, everything is automated.
 
@@ -48,11 +48,9 @@ Copy your token from the **Install App** section of the App settings
 <img src="https://i.imgur.com/tmkqVGs.png" alt="drawing" width="600"/>
 </p>
 
-
-
 ## Uninstall
 
-This will remove the locally stored token and any related cron jobs from your machine.
+This will remove the locally stored token and any related cron jobs from your machine
 
 ```bash
 slm uninstall
