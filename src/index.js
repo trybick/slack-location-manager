@@ -11,12 +11,19 @@ const { handleMasterScriptErrors } = require('./util/handleErrors');
 const args = process.argv;
 const option = args[2];
 
-if (option === 'install' || option === '-i') {
-  install();
-} else if (option === 'set' || option === '-s') {
-  setStatus();
-} else if (option === 'uninstall' || option === '-u') {
-  uninstall();
-} else {
-  handleMasterScriptErrors();
+switch (option) {
+  case 'install':
+  case '-i':
+    install();
+    break;
+  case 'set':
+  case '-s':
+    setStatus();
+    break;
+  case 'uninstall':
+  case '-u':
+    uninstall();
+    break;
+  default:
+    handleMasterScriptErrors();
 }
