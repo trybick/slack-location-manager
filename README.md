@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/slack-location-manager.svg)](https://www.npmjs.com/package/slack-location-manager)
 
-A command-line tool that sets your slack status for you depending on your location. Run the wizard to create a daily cron job, totally automating the process.
+A command-line tool that sets your slack status for you depending on your location. Run the wizard to create a daily cron job, and then forget about it.
 
 ## Purpose
 
@@ -69,7 +69,7 @@ Click **View App** in your Slackbot message that was sent to you or click on Loc
 Your token can be found in the **Install App** section of the app's settings:
 
 <p align="center">
-<img src="https://i.imgur.com/tmkqVGs.png" alt="drawing" width="600"/>
+<img src="https://i.imgur.com/xffSGvC.png" alt="drawing" width="600"/>
 </p>
 
 ## License
