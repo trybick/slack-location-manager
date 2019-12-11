@@ -1,7 +1,7 @@
 const prompts = require('prompts');
 
 //
-// Prompt user for Slack token and desired time to run script
+// Prompt user for Slack token and cron schedule
 //
 
 const questions = [
@@ -36,7 +36,7 @@ async function promptUser() {
 
 function _validateToken(token) {
   const regex = /^[0-9A-Za-z\s-]+$/; // letters, numbers, dashes
-  const isValid = token.length > 5 && regex.test(token);
+  const isValid = token.length > 50 && regex.test(token);
 
   return isValid ? true : 'Token invalid';
 }

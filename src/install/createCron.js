@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const log = require('../util/consoleLog');
 
 //
-// Schedule a system cron job for the recurring script
+// Schedule a cron job for the recurring script
 //
 
 function createCronJob(time) {
