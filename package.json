@@ -9,6 +9,21 @@
   },
   "author": "Tim Rybicki",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trybick/slack-location-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/trybick/slack-location-manager/issues"
+  },
+  "homepage": "https://github.com/trybick/slack-location-manager#readme",
+  "keywords": [
+    "slack",
+    "status",
+    "command line",
+    "f1v",
+    "automated"
+  ],
   "dependencies": {
     "@slack/web-api": "^5.5.0",
     "chalk": "^3.0.0",

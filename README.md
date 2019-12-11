@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/slack-location-manager.svg)](https://www.npmjs.com/package/slack-location-manager)
 
-A command-line tool that sets your slack status for you depending on your location. Run the wizard to create a daily cron job, and then forget about it.
+A command-line tool that sets your slack status for you depending on your location. Run the wizard to create a daily cron job, automating the process for the future.
 
 ## Purpose
 
