@@ -1,5 +1,6 @@
 const rp = require('request-promise');
 const handleErrors = require('../util/handleErrors');
+const geolib = require('geolib');
 
 //
 // Return emoji dependent on user's IP address location
@@ -7,17 +8,21 @@ const handleErrors = require('../util/handleErrors');
 
 const emojiMap = {
   f1v: null,
+  remote: ':house_with_garden:',
   billerica: ':yoop_jazz_hands:',
   concord: ':yoop_jazz_hands:',
-  remote: ':house_with_garden:',
 };
 
 async function calculateEmoji() {
-  const { city, org } = await _getIpInfo();
-  const isAtF1V = (city === 'waltham' || city === 'watertown') && org.contains('Verizon Business');
+  const { city, gps } = await _getIpInfo();
+  const isPossiblyAtF1V = city === 'waltham' || city === 'watertown';
 
-  if (isAtF1V) {
-    return emojiMap.f1v;
+  if (isPossiblyAtF1V) {
+    const distance = _checkGPSCoords(gps);
+
+    if (distance < 1) {
+      return emojiMap.f1v;
+    }
   }
 
   return emojiMap[city] || emojiMap.remote;
@@ -29,12 +34,28 @@ function _getIpInfo() {
   return rp(api)
     .then(res => {
       const json = JSON.parse(res);
-      const { org } = json;
+      const { loc: gps } = json;
       const city = json.city.toLowerCase();
 
-      return { org, city };
+      return { city, gps };
     })
     .catch(handleErrors);
+}
+
+function _checkGPSCoords(gps) {
+  const coords = gps.split(',');
+  const F1V = {
+    lat: '42.366716',
+    long: '-71.218910',
+  };
+
+  const dist = geolib.getDistance(
+    { latitude: coords[0], longitude: coords[1] },
+    { latitude: F1V.lat, longitude: F1V.long }
+  );
+  const distInMiles = dist / 1609;
+
+  return distInMiles;
 }
 
 module.exports = calculateEmoji;
