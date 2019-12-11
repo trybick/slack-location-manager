@@ -4,11 +4,11 @@ const { WebClient } = require('@slack/web-api');
 const calculateEmoji = require('./calculateEmoji');
 const storage = require('node-persist');
 const { initStorage } = require('../install/saveToDisk');
-const handleErrors = require('../util/handleErrors');
-const handleSetSuccess = require('./handleSetSuccess');
+const { handleErrors, validateRetrievedToken } = require('../util/handleErrors');
+const { handleSetExit, handleSetSuccess } = require('./handleSetCases');
 
 //
-// Script that cron will call repeatedly
+// Script that cron will call to set users's status
 // calculate emoji --> retrieve token --> call Slack API
 //
 
@@ -16,11 +16,15 @@ async function setStatus() {
   const emojiRegex = /:.*:/;
   const emoji = await calculateEmoji();
   if (!emoji || !emojiRegex.test(emoji)) {
+    handleSetExit();
     return;
   }
 
   await initStorage();
-  const token = await storage.getItem('token');
+  const token = await storage
+    .getItem('token')
+    .then(validateRetrievedToken)
+    .catch(handleErrors);
 
   const slack = new WebClient(token);
   const { userId } = await slack.auth.test();
