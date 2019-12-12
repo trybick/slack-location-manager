@@ -9,10 +9,7 @@
   },
   "author": "Tim Rybicki",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/trybick/slack-location-manager.git"
-  },
+  "repository": "github:trybick/slack-location-manager",
   "bugs": {
     "url": "https://github.com/trybick/slack-location-manager/issues"
   },
