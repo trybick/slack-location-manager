@@ -66,7 +66,7 @@ Click **View App** in your Slackbot message that was sent to you or click on Loc
 <img src="https://i.imgur.com/oQ6kJdr.png" alt="drawing" width="600"/>
 </p>
 
-Your token can be found in the **Install App** section of the app's settings:
+Click **Install App** to generate your token:
 
 <p align="center">
 <img src="https://i.imgur.com/xffSGvC.png" alt="drawing" width="600"/>
