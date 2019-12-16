@@ -9,8 +9,8 @@ const geolib = require('geolib');
 const emojiMap = {
   f1v: null,
   remote: ':house_with_garden:',
-  billerica: ':yoop_jazz_hands:',
-  concord: ':yoop_jazz_hands:',
+  billerica: ':yoop-jazz-hands:',
+  concord: ':yoop-jazz-hands:',
 };
 
 async function calculateEmoji() {
