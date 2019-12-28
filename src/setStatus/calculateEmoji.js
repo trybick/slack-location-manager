@@ -17,12 +17,8 @@ async function calculateEmoji() {
   const { city, gps } = await _getIpInfo();
   const isPossiblyAtF1V = city === 'waltham' || city === 'watertown';
 
-  if (isPossiblyAtF1V) {
-    const distance = _checkGPSCoords(gps);
-
-    if (distance < 1) {
-      return emojiMap.f1v;
-    }
+  if (isPossiblyAtF1V && _checkGPSCoords(gps) < 1) {
+    return emojiMap.f1v;
   }
 
   return emojiMap[city] || emojiMap.remote;
