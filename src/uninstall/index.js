@@ -35,9 +35,14 @@ async function promptForUninstall() {
 
 function _removeCronJobs() {
   crontab.load(async function(err, cron) {
-    const slmCommand = 'slm set';
+    const command = 'slm set';
 
-    cron.remove({ command: slmCommand });
+    cron.remove({ command });
+    cron.jobs().forEach(job => {
+      if (job.toString().includes('slm')) {
+        cron.remove(job);
+      }
+    });
     cron.save();
   });
 }
@@ -49,7 +54,6 @@ async function _removeToken() {
   log('\n');
   log(chalk.green((await `✔ Token removed: `) + chalk.green(`${directory}`)));
   log(chalk.green(await '✔ Cron jobs removed '));
-  log(chalk.cyan.italic.bold(await `Please click OK for write access if prompted`));
 }
 
 module.exports = promptForUninstall;

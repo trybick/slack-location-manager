@@ -8,14 +8,27 @@ const log = require('../util/consoleLog');
 //
 
 const directory = `/Applications/slack-location-manager/token`;
+const legacyDir = `/Applications/slack-location-manager`;
 
 async function saveToDisk(token) {
+  await deleteLegacyToken();
+
   await initStorage();
   await storage.clear();
   storage.setItem('token', token);
 
   log('\n');
   log(chalk.green((await `✔ Token saved: `) + chalk.green(`${directory}`)));
+}
+
+// Delete the token stored in the old location
+async function deleteLegacyToken() {
+  await storage
+    .init({
+      dir: legacyDir,
+    })
+    .catch(handleErrors);
+  await storage.removeItem('token');
 }
 
 async function initStorage() {

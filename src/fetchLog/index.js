@@ -12,7 +12,7 @@ async function fetchLog() {
 
   log(
     chalk.yellow(
-      `Note: This log is only created by cron and doesn't get created from manual 'slm set' commands.\n`
+      `Note: This log is only created by cron and doesn't get created from manual 'slm set' commands\n`
     )
   );
 
