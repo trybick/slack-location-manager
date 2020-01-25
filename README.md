@@ -10,7 +10,7 @@ The team at [F1V](http://f1v.co/) works in different offices depending on the da
 
 This was created for an internal use at F1V. If you're not part of the team and want to use this, you will need to create a Slack app your workspace and get a token from it.
 
-## How to Use
+## Install
 
 #### Globally install the package
 
@@ -26,12 +26,22 @@ npm install -g slack-location-manager
 slm install
 ```
 
-#### Test run the script
+## Other Commands
+
+## Set
 
 This is the command that cron will call daily. You can use this command to test setting your status.
 
 ```java
 slm set
+```
+
+## Log
+
+This command will output the contents of the log file created by the most recent `slm set` command that originated from cron.
+
+```java
+slm log
 ```
 
 ## Uninstall
@@ -48,7 +58,7 @@ slm uninstall
 
 - User is prompted for token and desired time of day to run script ([prompts](https://github.com/terkelg/prompts), [chalk](https://github.com/chalk/chalk))
 - Token is saved locally ([node-persist](https://github.com/simonlast/node-persist))
-- Cron job is created ([node-crontab](https://github.com/dachev/node-crontab))
+- Cron job is created ([node-crontab](https://github.com/dachev/node-crontab), [shelljs](https://www.npmjs.com/package/shelljs))
 
 #### Recurring script
 

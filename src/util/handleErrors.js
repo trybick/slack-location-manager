@@ -13,12 +13,18 @@ function handleMasterScriptErrors() {
     chalk.cyanBright.bold(`slm install`) + chalk.whiteBright(': Setup your token and cron schedule')
   );
   log(
-    chalk.cyanBright.bold('slm uninstall') +
-      chalk.whiteBright(': Remove token all associated cron jobs')
-  );
-  log(
     chalk.cyanBright.bold('slm set') +
       chalk.whiteBright(': Run the script to set your slack status')
+  );
+  log(
+    chalk.cyanBright.bold('slm log') +
+      chalk.whiteBright(
+        ': Read the log file created by the most recent `slm set` command that originated from cron'
+      )
+  );
+  log(
+    chalk.cyanBright.bold('slm uninstall') +
+      chalk.whiteBright(': Remove token all associated cron jobs')
   );
 
   process.exit(1);

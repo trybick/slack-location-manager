@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+const fetchLog = require('./fetchLog');
 const install = require('./install');
 const uninstall = require('./uninstall');
 const setStatus = require('./setStatus');
@@ -19,6 +20,10 @@ switch (option) {
   case 'set':
   case '-s':
     setStatus();
+    break;
+  case 'log':
+  case '-l':
+    fetchLog();
     break;
   case 'uninstall':
   case '-u':

@@ -7,7 +7,7 @@ const log = require('../util/consoleLog');
 // Store token locally
 //
 
-const directory = `/Applications/slack-location-manager`;
+const directory = `/Applications/slack-location-manager/token`;
 
 async function saveToDisk(token) {
   await initStorage();
