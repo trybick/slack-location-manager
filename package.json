@@ -1,6 +1,6 @@
 {
   "name": "slack-location-manager",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Location-based slack status automation",
   "scripts": {
     "installer": "node src/index.js install",
