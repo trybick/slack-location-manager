@@ -31,7 +31,7 @@ function createCronJob(time) {
       }
     });
 
-    // Create job
+    // Save job
     const job = cron.create(command, schedule);
     if (job === null) {
       log(chalk.red.bold('Failed to create cron job \n'));
@@ -40,8 +40,6 @@ function createCronJob(time) {
     cron.save();
 
     log(chalk.green(await `✔ Cron job created: ${time} am Monday - Friday`));
-    log('\n');
-    log(chalk.cyan.italic.bold(await `Please click OK for write access if prompted`));
   });
 }
 
