@@ -4,13 +4,13 @@
 
 A command-line tool that sets your slack status for you depending on your location. Run the wizard to create a daily cron job, automating the process for the future.
 
-## Purpose
+# Purpose
 
-The team at [F1V](http://f1v.co/) works in different offices depending on the day. We let our team know who is at which office by setting our slack status (e.g. use the 'house' emoji when we're working from home). Once you install this script, this process will be automated by a daily cron job.
+The team at [F1V](http://f1v.co/) works in different offices depending on the day. We let our team know who is at which office by setting our slack status (e.g. use the 'house' emoji when we're working from home). Once you install this tool, this process will be automated by a daily cron job.
 
-This was created for an internal use at F1V. If you're not part of the team and want to use this, you will need to create a Slack app your workspace and get a token from it.
+If you're not part of our team and are considering using this, you can create a Slack app in your workspace and get a token from it.
 
-## Install
+# Install
 
 #### Globally install the package
 
@@ -18,41 +18,47 @@ This was created for an internal use at F1V. If you're not part of the team and 
 npm install -g slack-location-manager
 ```
 
-#### Run the install wizard
+#### Setup the cron job
 
-**Important**: A token will be required for first-time setup, see below [How to get a Token](https://github.com/trybick/slack-location-manager#how-to-get-a-token)
+**Important**: A token will be required for first-time setup, see below section [How to get a Token](https://github.com/trybick/slack-location-manager#how-to-get-a-token)
 
 ```bash
 slm install
 ```
 
-## Other Commands
-
-## Set
-
-This is the command that cron will call daily. You can use this command to test setting your status.
-
-```java
-slm set
-```
-
-## Log
-
-This command will output the contents of the log file created by the most recent `slm set` command that originated from cron.
+# Other Commands
 
 ```java
 slm log
+
+// Outputs the content of most recent cron job log file
 ```
 
-## Uninstall
+```java
+slm set
 
-This will remove the locally stored token and any related cron jobs from your machine
+// Command that cron will call daily. Use this to test setting your status.
+```
 
-```bash
+```java
 slm uninstall
+
+// This will remove the locally stored token and any related cron jobs from your machine
 ```
 
-## How it Works
+# How to Get a Token
+
+Note: you should only have to do this once
+
+- Go to your [workspace apps](https://api.slack.com/apps)
+- Click Location Manager
+- Go to 'Install App' and click the 'Install App' button, and copy token
+
+<p align="center">
+<img src="https://i.imgur.com/xffSGvC.png" alt="drawing" width="600"/>
+</p>
+
+# How it Works
 
 #### Install wizard
 
@@ -65,22 +71,6 @@ slm uninstall
 - Status emoji is calculated based on IP address location ([ipinfo.io](https://ipinfo.io), [geolib](https://github.com/manuelbieh/geolib))
 - Token is retrieved from local storage ([node-persist](https://github.com/simonlast/node-persist))
 - API call is made to Slack ([node-slack-sdk](https://github.com/slackapi/node-slack-sdk), [Slack Web API](https://api.slack.com/methods/users.profile.set))
-
-## How to Get a Token
-
-Note: you should only have to do this once. Once completed, everything is automated.
-
-Click **View App** in your Slackbot message that was sent to you or click on Location Manager [here](https://api.slack.com/apps) (might have to sign in):
-
-<p align="center">
-<img src="https://i.imgur.com/oQ6kJdr.png" alt="drawing" width="600"/>
-</p>
-
-Click **Install App** to generate your token:
-
-<p align="center">
-<img src="https://i.imgur.com/xffSGvC.png" alt="drawing" width="600"/>
-</p>
 
 ## License
 
